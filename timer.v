@@ -12,10 +12,10 @@ wire [5:0] Q;           // Current state stored in the Flip-Flops
 wire [5:0] D_sub;       // Result of the subtraction logic (Q - 1)
 wire [5:0] D_final;     // Result after deciding between 'Load' or 'Decrement'
 wire [4:0] C;           // Carry wires to chain the Full Adders together
-wire is_zero;           // Status wire: High if the timer has reached 0
+wire zero;              // Status wire: High if the timer has reached 0
 wire update_en;         // Master enable: Logic to decide if DFFs should change
 
-assign is_zero = (Q == 6'b000000);
+assign zero = (Q == 6'b000000);
 
 full_adder FA0(
     .A(Q[0]), 
@@ -61,7 +61,7 @@ assign D_final = (load) ? load_value : D_sub;
 // We only want the Flip-Flops to update state if:
 // A) The user is trying to 'load' a new value, OR
 // B) 'en' is high AND the timer hasn't hit zero yet.
-assign update_en = load | (en & ~is_zero);
+assign update_en = load | (en & ~zero);
 
 dff t0 (
     .clk(clk), 
