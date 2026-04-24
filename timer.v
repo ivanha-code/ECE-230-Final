@@ -85,7 +85,8 @@ dff t3 (
     .clk(clk), 
     .rst(rst), 
     .enable(update_en), 
-    .d(D_final[3]), .q(Q[3]));
+    .d(D_final[3]), 
+    .q(Q[3]));
 dff t4 (
     .clk(clk), 
     .rst(rst), 
