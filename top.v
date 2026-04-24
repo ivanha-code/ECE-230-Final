@@ -33,13 +33,6 @@ end
 //Seven Segment Display Interface
 seven_segment_inf seven_segment_inf_inst (.clk(clk), .rst(btnC), .count(count) , .anode(an), .segs(seg));
 /********************************/
-seven_segment_inf seven_segment_inf_inst (
-    .clk(clk),
-    .rst(btnC),
-    .count(count),
-    .anode(an),
-    .segs(seg)
-);
 /******** UNCOMMENT & UPDATE THIS SECTION ********/
 // wire "count" feeds in count value to seven segment display. This should be a 6-bit value
 //This will decide if seven segment display shows stopwatch count or timer count
