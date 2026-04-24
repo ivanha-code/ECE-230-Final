@@ -5,7 +5,7 @@ module dff(
     input enable,
     output reg q
 );
-
+test
 initial q = 0;
 
 always @(posedge clk or posedge rst) begin
